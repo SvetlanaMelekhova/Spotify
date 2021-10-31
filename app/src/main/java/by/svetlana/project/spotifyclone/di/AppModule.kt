@@ -2,6 +2,7 @@ package by.svetlana.project.spotifyclone.di
 
 import android.content.Context
 import by.svetlana.project.spotifyclone.R
+import by.svetlana.project.spotifyclone.exoplayer.MusicServiceConnection
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -15,6 +16,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Singleton
+    @Provides
+    fun provideMusicServiceConnection(
+        @ApplicationContext context: Context,
+    ) = MusicServiceConnection(context)
 
     @Singleton
     @Provides
